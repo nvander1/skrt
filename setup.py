@@ -1,4 +1,6 @@
-from distutils.core import setup
+"""Setup for PyPi"""
+
+from setuptools import setup
 setup(
   name='nik',
   packages=['nik'],
