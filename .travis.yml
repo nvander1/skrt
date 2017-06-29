@@ -12,6 +12,6 @@ install:
   - pip install pylint
 
 script:
-  - python -m doctest *.py
-  - pylint *.py
-  - pep8 *.py
+  - python -m doctest nik/*.py
+  - pylint nik/*.py
+  - pep8 nik/*.py
