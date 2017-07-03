@@ -1,7 +1,7 @@
-"""Setup module for nik.
+"""Setup module for skrt.
 
 See:
-https://github.com/nvander1/nik
+https://github.com/nvander1/skrt
 """
 
 from codecs import open
@@ -14,11 +14,11 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='nik',
+    name='skrt',
     version='1.0.0',
     description='Nifty tools and containers',
     long_description=long_description,
-    url='https://github.com/nvander1/nik',
+    url='https://github.com/nvander1/skrt',
     author='Nik Vanderhoof',
     author_email='pypi@vanderhoof.pw',
     license='GPLv3',
@@ -29,6 +29,6 @@ setup(
         'Programming Language :: Python :: 3.6'
     ],
     keywords='development tools containers',
-    packages=['nik'],
+    packages=['skrt'],
     python_requires='~=3.6'
 )
