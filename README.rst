@@ -12,7 +12,8 @@ defined in the collections standard module.
 utils
 -----
 Utility functions for manipulating containers.
-Thanks `Jack Fischer<https://github.com/jackfischer>`_, for the idea for ``rmap``.
+Thanks `Jack Fischer
+<https://www.github.com/jackfischer/>`_, for the idea for ``rmap``.
 
 * **subdict**  extract a subset of a dictionary
 * **match**    compare multiple objects based on a list of shared attributes
