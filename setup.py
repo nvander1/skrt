@@ -4,20 +4,16 @@ See:
 https://github.com/nvander1/skrt
 """
 
-from codecs import open
-from os import path
 from setuptools import setup
 
-here = path.abspath(path.dirname(__file__))
-
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+with open('README.rst') as f:
+    readme = f.read()
 
 setup(
     name='skrt',
     version='1.0.0',
     description='Nifty tools and containers',
-    long_description=long_description,
+    long_description=readme,
     url='https://github.com/nvander1/skrt',
     author='Nik Vanderhoof',
     author_email='pypi@vanderhoof.pw',
