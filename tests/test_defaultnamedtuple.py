@@ -3,9 +3,7 @@ from nose.tools import raises
 from skrt.containers import defaultnamedtuple
 
 
-def setup_module():
-    global Name
-    Name = defaultnamedtuple('Name', 'first', 'last', middle='', prefix='Mr.')
+Name = defaultnamedtuple('Name', 'first', 'last', middle='', prefix='Mr.')
 
 
 def test_positional_arg_assignment():
