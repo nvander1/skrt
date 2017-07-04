@@ -42,7 +42,7 @@ def subdict(keys, dict_):
     KeyError: 'five'
 
     """
-    return dict((key, dict_[key]) for key in keys)
+    return {key: dict_[key] for key in keys}
 
 
 def match(fields, objs):
