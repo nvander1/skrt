@@ -28,3 +28,10 @@ def test_dict():
 def test_complex_nested():
     obj = ['1', 2, ({3: 4}, {5, '6'})]
     assert rmap(obj, square, int) == ['1', 4, ({3: 16}, {'6', 25})]
+
+
+def test_unusual_mapping():
+    from collections import Counter
+    c = Counter([1,2,2])
+    assert rmap(c, square, int) == Counter([1,2,2,2,2])
+
