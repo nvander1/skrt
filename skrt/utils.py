@@ -112,7 +112,3 @@ def rmap(obj, func, typename):
             {k: rmap(v, func, typename)
              for k, v in obj.items()} if isinstance(obj, dict) else
             obj)
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
