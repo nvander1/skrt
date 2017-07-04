@@ -8,8 +8,6 @@ containers.
 """
 
 
-from types import GeneratorType
-
 def subdict(keys, dict_):
     """
     Creates a subdictionary given a list of keys and a dictionary.
@@ -111,7 +109,6 @@ def rmap(obj, func, typename):
     return (list(gen)  if isinstance(obj, list) else
             tuple(gen) if isinstance(obj, tuple) else
             set(gen)   if isinstance(obj, set) else
-            gen        if isinstance(obj, GeneratorType) else
             {k: rmap(v, func, typename)
              for k, v in obj.items()} if isinstance(obj, dict) else
             obj)
