@@ -82,6 +82,17 @@ def match(fields, objs):
 
 def rmap(obj, func, typename):
     """
+    Recursivley maps a function onto an object or elements of a container.
+
+    Parameters
+    ----------
+    obj : object
+        The object or container onto which `func` is recursively mapped.
+    func : function
+        The function to apply to the most deeply nested elements in obj.
+    typename : type
+        The type of argument taken by `func`.
+
     Examples
     --------
     >>> obj = [1, 2, 3, 4, '1']
@@ -91,6 +102,7 @@ def rmap(obj, func, typename):
     >>> obj = [1, 2, 3, 4, 'Word', {'WORD': 'WORD'}]
     >>> rmap(obj, lambda x: x.lower(), str)
     [1, 2, 3, 4, 'word', {'WORD': 'word'}]
+
     """
     if isinstance(obj, typename):
         return func(obj)
