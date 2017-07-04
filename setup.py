@@ -21,11 +21,11 @@ setup(
     url='https://github.com/nvander1/skrt',
     author='Nik Vanderhoof',
     author_email='pypi@vanderhoof.pw',
-    license='GPLv3',
+    license='AGPLv3',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'License :: OSI Approved :: GNU Affero General Public License v3',
         'Programming Language :: Python :: 3.6'
     ],
     keywords='development tools containers',
