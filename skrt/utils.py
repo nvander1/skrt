@@ -104,16 +104,14 @@ def rmap(func, obj, typename):
     """
     if isinstance(obj, typename):
         return func(obj)
-
     # Unfortunately strings are iterable but string constructors turn
     # iterables into things like '<genexpr> at 0x105e56c50>' instead
     # of consuming them like normal collections and rebuilding themselves.
     # This ruins our beautiful code, but we can handle it as an edge case.
-    if isinstance(obj, Text):# and not issubclass(typename, Text):
-    #    #If obj is a string and user is not intentionally targetting strings..
+    if isinstance(obj, Text):
         return obj
-
     if isinstance(obj, Mapping):
         return type(obj)({k: rmap(func, obj[k], typename) for k in obj})
     if isinstance(obj, Iterable):
         return type(obj)(rmap(func, item, typename) for item in obj)
+    return obj
