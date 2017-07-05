@@ -6,7 +6,7 @@ containers.
 * rmap     recursively map a function onto items of nested iterables
 
 """
-
+from typing import Mapping, Iterable, Text
 
 def subdict(keys, dict_):
     """
@@ -104,11 +104,16 @@ def rmap(obj, func, typename):
     """
     if isinstance(obj, typename):
         return func(obj)
-    if hasattr(obj, '__iter__'):
-        gen = (rmap(item, func, typename) for item in obj)
-    return (list(gen)  if isinstance(obj, list) else
-            tuple(gen) if isinstance(obj, tuple) else
-            set(gen)   if isinstance(obj, set) else
-            {k: rmap(v, func, typename)
-             for k, v in obj.items()} if isinstance(obj, dict) else
-            obj)
+
+    # Unfortunately strings are iterable but string constructors turn
+    # iterables into things like '<genexpr> at 0x105e56c50>' instead
+    # of consuming them like normal collections and rebuilding themselves.
+    # This ruins our beautiful code, but we can handle it as an edge case.
+    if isinstance(obj, Text):# and not issubclass(typename, Text):
+    #    #If obj is a string and user is not intentionally targetting strings..
+        return obj
+
+    if isinstance(obj, Mapping):
+        return type(obj)({k: rmap(obj[k], func, typename) for k in obj})
+    if isinstance(obj, Iterable):
+        return type(obj)(rmap(item, func, typename) for item in obj)
