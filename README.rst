@@ -1,6 +1,5 @@
-skrt
-====
-Version 1.0
+skrt v1.0.0.0
+=============
 
 containers
 ----------
