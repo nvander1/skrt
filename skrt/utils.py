@@ -78,7 +78,7 @@ def match(fields, objs):
     return all(dict_ == subdicts[0] for dict_ in subdicts)
 
 
-def rmap(obj, func, typename):
+def rmap(func, obj, typename):
     """
     Recursivley maps a function onto an object or elements of a container.
 
@@ -94,11 +94,11 @@ def rmap(obj, func, typename):
     Examples
     --------
     >>> obj = [1, 2, 3, 4, '1']
-    >>> rmap(obj, lambda x: x**2, int)
+    >>> rmap(lambda x: x**2, obj, int)
     [1, 4, 9, 16, '1']
 
     >>> obj = [1, 2, 3, 4, 'Word', {'WORD': 'WORD'}]
-    >>> rmap(obj, lambda x: x.lower(), str)
+    >>> rmap(lambda x: x.lower(), obj, str)
     [1, 2, 3, 4, 'word', {'WORD': 'word'}]
 
     """
@@ -114,6 +114,6 @@ def rmap(obj, func, typename):
         return obj
 
     if isinstance(obj, Mapping):
-        return type(obj)({k: rmap(obj[k], func, typename) for k in obj})
+        return type(obj)({k: rmap(func, obj[k], typename) for k in obj})
     if isinstance(obj, Iterable):
-        return type(obj)(rmap(item, func, typename) for item in obj)
+        return type(obj)(rmap(func, item, typename) for item in obj)
