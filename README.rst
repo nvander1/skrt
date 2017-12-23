@@ -1,4 +1,4 @@
-skrt v1.1.0
+skrt v1.2.0
 =============
 
 containers
@@ -7,6 +7,7 @@ Specialized containers as alternatives to Python's built-in types and to those
 defined in the collections standard module.
 
 * **defaultnamedtuple**  factory function for namedtuples with default arguments
+* **forwardingdict**     defaultdict subclass that passes missing key to factory
 
 utils
 -----
