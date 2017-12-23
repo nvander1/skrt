@@ -3,6 +3,7 @@ to Python's built-in types and to those defined in the collections
 standard module.
 
 * defaultnamedtuple  factory function for namedtuples with default arguments
+* forwardingdict     subclass of default dict that passes missing key to factory
 
 """
 
@@ -44,3 +45,24 @@ def defaultnamedtuple(typename, *args, **kwargs):
     arg_list = (arg_list + ', ' + kwargs_list).replace("'", '')
     subclass.__doc__ = f'{typename}({arg_list})'
     return subclass
+
+
+class forwardingdict(collections.defaultdict):
+    """A subclass of `collections.defaultdict` that passes missing key to
+    factory function.
+
+    Examples
+    --------
+    >>> test_dict = forwardingdict(list)
+    >>> test_dict['hello']
+    ['h', 'e', 'l', 'l', 'o']
+    >>> test_dict = forwardingdict(lambda key: list())
+    >>> test_dict['hello']
+    []
+    """
+    def __missing__(self, key):
+        if self.default_factory is None:
+            raise KeyError(key)
+        else:
+            value = self[key] = self.default_factory(key)
+            return value
