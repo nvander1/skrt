@@ -1,4 +1,4 @@
-skrt v1.2.1
+skrt v1.3.0
 =============
 
 containers
@@ -8,6 +8,24 @@ defined in the collections standard module.
 
 * **defaultnamedtuple**  factory function for namedtuples with default arguments
 * **forwardingdict**     defaultdict subclass that passes missing key to factory
+
+
+functional
+----------
+Higher order functions like those found in languages like Haskell.
+
+* **compose**  compose a list of functions
+* **flip**     create a function with reversed arguments of another function
+* **foldl**    left-associative reduce
+* **foldr**    right-associatve reduce
+
+
+text
+----
+Utilities for manipulating text.
+
+* **color**    add ansi colors and styles to strings
+
 
 utils
 -----
@@ -19,8 +37,7 @@ Thanks `Jack Fischer
 * **match**    compare multiple objects based on a list of shared attributes
 * **rmap**     recursively map a function onto items of nested containers
 
-text
-----
-Utilities for manipulating text.
-
-* **color**    add ansi colors and styles to strings
+* **head**     get the first element of a sequence
+* **tail**     get all but the first element of a sequence
+* **last**     get the last element of a sequence
+* **init**     get all but the last element of a sequence
