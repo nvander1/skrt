@@ -5,6 +5,11 @@ containers.
 * match    compare multiple objects based on a list of shared attributes
 * rmap     recursively map a function onto items of nested iterables
 
+* head     get the first element of a sequence
+* tail     get all but the first element of a sequence
+* last     get the last element of a sequence
+* init     get all but the last element of a sequence
+
 """
 from typing import Mapping, Iterable, Text
 
@@ -115,3 +120,67 @@ def rmap(func, obj, typename):
     if isinstance(obj, Iterable):
         return type(obj)(rmap(func, item, typename) for item in obj)
     return obj
+
+
+def head(sequence):
+    """Get the first element of a sequence.
+
+    Parameters
+    ----------
+    sequence : Sequence[A]
+        The sequence from which to extract an element.
+
+    Returns
+    -------
+    A
+        The head.
+    """
+    return sequence[0]
+
+
+def tail(sequence):
+    """Get all but the first element in a sequence.
+
+    Parameters
+    ----------
+    sequence : Sequence[A]
+        The sequence to decapitate.
+
+    Returns
+    -------
+    Sequence[A]
+        The decapitated sequence.
+    """
+    return sequence[1:]
+
+
+def last(sequence):
+    """Get the last element of a sequence.
+
+    Parameters
+    ----------
+    sequence : Sequence[A]
+        The sequence from which to extract an element.
+
+    Returns
+    -------
+    A
+        The last element of the sequence.
+    """
+    return sequence[-1]
+
+
+def init(sequence):
+    """Get all but the last element of a sequence.
+
+    Parameters
+    ----------
+    sequence : Sequence[A]
+        The sequence from which to extract elements.
+
+    Returns
+    -------
+    Sequence[A]
+        The sequence with the tail chopped off.
+    """
+    return sequence[:-1]

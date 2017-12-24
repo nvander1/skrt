@@ -34,3 +34,8 @@ Thanks `Jack Fischer
 * **subdict**  extract a subset of a dictionary
 * **match**    compare multiple objects based on a list of shared attributes
 * **rmap**     recursively map a function onto items of nested containers
+
+* **head**     get the first element of a sequence
+* **tail**     get all but the first element of a sequence
+* **last**     get the last element of a sequence
+* **init**     get all but the last element of a sequence
