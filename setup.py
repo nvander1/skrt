@@ -11,7 +11,7 @@ with open('README.rst') as f:
 
 setup(
     name='skrt',
-    version='1.2.1',
+    version='1.3.0',
     description='Nifty tools and containers',
     long_description=readme,
     url='https://github.com/nvander1/skrt',
@@ -19,7 +19,7 @@ setup(
     author_email='pypi@vanderhoof.pw',
     license='MIT',
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 3 - Alpha'
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.6'
