@@ -15,6 +15,7 @@ functional
 Higher order functions like those found in languages like Haskell.
 
 * **compose**  compose a list of functions
+* **flip**     create a function with reversed arguments of another function
 * **foldl**    left-associative reduce
 * **foldr**    right-associatve reduce
 

@@ -1,8 +1,10 @@
 """This module implements higher order functions found in languages
 like Haskell.
 
-* foldl  left-associative reduce
-* foldr  right-associatve reduce
+* compose  compose a list of functions
+* flip     create a function with reversed arguments of another function
+* foldl    left-associative reduce
+* foldr    right-associatve reduce
 """
 
 
@@ -98,7 +100,7 @@ def foldr(function, acc, xs):
 
 
 def compose(*functions):
-    """Composes a list of function
+    """Composes a list of function.
     
     Parameters
     ----------
@@ -124,3 +126,21 @@ def compose(*functions):
         acc = last(functions)(*args, **kwargs)
         return foldr(lambda f, v: f(v), acc, init(functions))
     return composed
+
+
+def flip(func):
+    """Reverses the arguments of a function.
+
+    Parameters
+    ----------
+    func : function
+        The original function.
+
+    Returns
+    -------
+    function
+        A function identical to `func` except it expects arguments in reverse.
+    """
+    def flipped(*args):
+        return func(*args[::-1])
+    return flipped
