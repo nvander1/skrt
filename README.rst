@@ -1,4 +1,4 @@
-skrt v1.2.1
+skrt v1.3.0
 =============
 
 containers
