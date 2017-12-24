@@ -1,3 +1,9 @@
+"""This module implements utilities for manipulating text.
+
+* color    add ansi colors and styles to strings
+"""
+
+
 FG_COLORS = {
     'black' : '30',
     'red' : '31',
@@ -31,6 +37,19 @@ ESCAPE = '\033['
 
 
 def color(string, fg=None, fx=None, bg=None):
+    """Changes the color and style of a string to be printed in a terminal.
+
+    Parameters
+    ----------
+    string : str
+        The text to colorize.
+    fg : str
+        The text color (e.g. 'red', 'cyan', 'black', 'yellow', etc.).
+    fg : str
+        The text style (e.g. 'normal', 'bold', and 'underline').
+    bg : str
+        The background color (e.g. 'red', 'cyan', 'black', 'yellow', etc.).
+    """
     keys = (fg, fx, bg)
     tables = (FG_COLORS, FXS, BG_COLORS)
     codes = [table[key] for table, key in zip(tables, keys) if key is not None]
