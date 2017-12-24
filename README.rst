@@ -9,6 +9,14 @@ defined in the collections standard module.
 * **defaultnamedtuple**  factory function for namedtuples with default arguments
 * **forwardingdict**     defaultdict subclass that passes missing key to factory
 
+
+functional
+----------
+Higher order functions like those found in languages like Haskell.
+
+* **foldl**  left-associative reduce
+* **foldr**  right-associatve reduce
+
 utils
 -----
 Utility functions for manipulating containers.
