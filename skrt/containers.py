@@ -51,6 +51,12 @@ class forwardingdict(collections.defaultdict):
     """A subclass of `collections.defaultdict` that passes missing key to
     factory function.
 
+    Parameters
+    ----------
+    factory : function
+        The factory function is called to create new values in the dictionary.
+        It accepts the missing key as a parameter.
+
     Examples
     --------
     >>> test_dict = forwardingdict(list)
