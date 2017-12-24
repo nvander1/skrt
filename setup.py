@@ -17,7 +17,7 @@ setup(
     url='https://github.com/nvander1/skrt',
     author='Nik Vanderhoof',
     author_email='pypi@vanderhoof.pw',
-    license='AGPLv3',
+    license='MIT',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',
