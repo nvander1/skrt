@@ -8,6 +8,8 @@ like Haskell.
 
 from functools import reduce
 
+from .utils import last, init
+
 
 def foldl(function, acc, xs):
     """Reduces a sequence with a function in a left-associative manner.
@@ -93,3 +95,32 @@ def foldr(function, acc, xs):
     True
     """
     return reduce(lambda x, y: function(y, x), reversed(xs), acc)
+
+
+def compose(*functions):
+    """Composes a list of function
+    
+    Parameters
+    ----------
+    functions : list
+        A list of callables. The argument of the nth function should be of
+        the same type as the return type of the n+1th function.
+
+    Returns
+    -------
+    function
+        A new function created by composing all the functions.
+
+    Examples
+    --------
+    >>> double = lambda x: x*2
+    >>> square = lambda x: x**2
+    >>> compose(square, double)(3)
+    36
+    >>> (3 * 2) ** 2
+    36
+    """
+    def composed(*args, **kwargs):
+        acc = last(functions)(*args, **kwargs)
+        return foldr(lambda f, v: f(v), acc, init(functions))
+    return composed

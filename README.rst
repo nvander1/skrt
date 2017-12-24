@@ -14,8 +14,9 @@ functional
 ----------
 Higher order functions like those found in languages like Haskell.
 
-* **foldl**  left-associative reduce
-* **foldr**  right-associatve reduce
+* **compose**  compose a list of functions
+* **foldl**    left-associative reduce
+* **foldr**    right-associatve reduce
 
 
 text
