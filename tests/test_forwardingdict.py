@@ -1,12 +1,12 @@
-from nose.tools import raises
+from pytest import raises
 
 from skrt.containers import forwardingdict
 
 
-@raises(KeyError)
 def test_missingfactory():
-    test_dict = forwardingdict(None)
-    test_dict['hello']
+    with raises(KeyError):
+        test_dict = forwardingdict(None)
+        test_dict['hello']
 
 
 def test_passing():

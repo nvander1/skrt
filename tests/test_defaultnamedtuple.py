@@ -1,4 +1,4 @@
-from nose.tools import raises
+from pytest import raises
 
 from skrt.containers import defaultnamedtuple
 
@@ -12,9 +12,9 @@ def test_positional_arg_assignment():
     assert john_doe.last == 'Doe'
 
 
-@raises(TypeError)
 def test_missing_positional_args():
-    john = Name('John')
+    with raises(TypeError):
+        john = Name('John')
 
 
 def test_kwarg_default():

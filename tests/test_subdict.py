@@ -1,12 +1,12 @@
-from nose.tools import raises
+from pytest import raises
 
 from skrt.utils import subdict
 
 
-@raises(KeyError)
 def test_missing_key():
-    dict_ = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
-    subdict_ = subdict(['e'], dict_)
+    with raises(KeyError):
+        dict_ = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+        subdict_ = subdict(['e'], dict_)
 
 
 def test_subdict():
