@@ -113,7 +113,9 @@ def rmap(func, obj, typename):
     # iterables into things like '<genexpr> at 0x105e56c50>' instead
     # of consuming them like normal collections and rebuilding themselves.
     # This ruins our beautiful code, but we can handle it as an edge case.
-    if isinstance(obj, Text):
+    #
+    # in Python 2, Text is an alias for unicode, not str
+    if isinstance(obj, Text) or isinstance(obj, str):
         return obj
     if isinstance(obj, Mapping):
         return type(obj)({k: rmap(func, obj[k], typename) for k in obj})

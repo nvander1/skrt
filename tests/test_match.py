@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-from nose.tools import raises
+from pytest import raises
 
 from skrt.utils import match
 
@@ -16,9 +16,9 @@ def setup_module():
         last = 'z'
 
 
-@raises(KeyError)
 def test_missing_key():
-    assert match(['first', 'middle'], [Name, Alphabet])
+    with raises(KeyError):
+        assert match(['first', 'middle'], [Name, Alphabet])
 
 
 def test_matching_fields():
