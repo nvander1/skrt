@@ -11,7 +11,7 @@ with open('README.rst') as f:
 
 setup(
     name='skrt',
-    version='1.3.2',
+    version='1.3.2.1',
     description='Nifty tools and containers',
     long_description=readme,
     url='https://github.com/nvander1/skrt',
@@ -26,5 +26,5 @@ setup(
     ],
     keywords='development tools containers',
     packages=['skrt'],
-    python_requires='~=2.7'
+    python_requires='>=2.7'
 )
