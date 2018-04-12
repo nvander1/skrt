@@ -22,9 +22,9 @@ setup(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.6'
+        'Programming Language :: Python :: 2.7'
     ],
     keywords='development tools containers',
     packages=['skrt'],
-    python_requires='~=3.6'
+    python_requires='~=2.7'
 )

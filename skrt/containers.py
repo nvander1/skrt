@@ -38,12 +38,13 @@ def defaultnamedtuple(typename, *args, **kwargs):
     Name(last='Smith', first='John', middle='Robert')
 
     """
-    subclass = collections.namedtuple(typename, args + tuple(kwargs))
-    subclass.__new__.__defaults__ = tuple(kwargs.values())
     kwargs_list = repr(kwargs)[1:-1].replace(': ', '=')
     arg_list = repr(args)[1:-1]
     arg_list = (arg_list + ', ' + kwargs_list).replace("'", '')
-    subclass.__doc__ = f'{typename}({arg_list})'
+    subclass = collections.namedtuple(typename, args + tuple(kwargs))
+    docstring = typename + '(' + str(arg_list) + ')'
+    subclass = type(typename, (subclass,), {'__doc__': docstring})
+    subclass.__new__.__defaults__ = tuple(kwargs.values())
     return subclass
 
 
