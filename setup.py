@@ -26,5 +26,5 @@ setup(
     ],
     keywords='development tools containers',
     packages=['skrt'],
-    python_requires='~=2.7'
+    python_requires='>=2.7'
 )
